@@ -1,0 +1,34 @@
+
+.main-button {
+  display: table;
+  margin: 30px auto;
+  border-bottom: 3px solid black;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  text-transform: lowercase;
+}
+
+.subscription-form {
+  padding: 50px 0;
+  text-align: center;
+  .subscription-content {
+    display: flex;
+    justify-content: center;
+  }
+  .input-large {
+    width: 300px;
+    border: 1px solid black;
+    border-right: 0;
+    padding: 10px 10px;
+  }
+  .subscription-button {
+    background: #DCE5E5;
+    border: 1px solid black;
+    border-left: 0;
+    padding: 0 20px;
+    cursor: pointer;
+  }
+}

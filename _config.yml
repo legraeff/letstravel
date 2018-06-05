@@ -1,0 +1,27 @@
+# Site settings
+title: "Lets travel"
+email: ""
+description: > # this means to ignore newlines until "baseurl:"
+  cool travel things
+baseurl: "" # the subpath of your site, e.g. /blog/
+# url: "http://username.github.io" # the base hostname & protocol for your site
+twitter_username: username
+github_username: username
+
+languages: ['en', 'pt']
+language_data: data.lang.%%
+language_includes_dir: _i18n
+
+
+plugins:
+  - jekyll-maps
+  - jekyll-language-plugin
+
+maps:
+  google:
+    api_key: AIzaSyA3V27RYOIIP8f7c0Ew0EWccV8YaIJ-gK8
+    marker_clusterer:
+      enabled: true
+
+# Build settings
+markdown: kramdown

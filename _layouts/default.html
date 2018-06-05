@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+    <div class="body-cover">
+      <img src="{{"/assets/static/logo.png" | prepend: site.baseurl | prepend: site.url}}"></img>
+    </div>
+
+
+    {% include header.html %}
+
+    <div>
+      {{ content }}
+    </div>
+
+    <!-- {% include footer.html %} -->
+
+    <script type="text/javascript" src={{ "/assets/js/jquery.js" | prepend: site.baseurl | prepend: site.url }}></script>
+    <script type="text/javascript">
+      $(window).on('load', function() {
+          $(".body-cover").addClass("uncover-body");
+          $("a[href]").click(function(event){
+              event.preventDefault();
+              linkLocation = this.href;
+              $(".body-cover").addClass("cover-body")
+              setTimeout(function(){
+                 redirectPage(); }
+              , 500);
+          });
+          function redirectPage() {
+              window.location = linkLocation;
+          }
+      });
+    </script>
+
+  </body>
+
+</html>

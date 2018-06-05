@@ -1,0 +1,26 @@
+
+.map-section {
+  border-top: 3px solid black;
+  margin-top: 50px;
+}
+
+.map-info-window {
+  padding: 5px;
+  h5 {
+    font-size: 16px;
+    margin: 0;
+    font-weight: normal;
+  }
+}
+
+.google-maps > div {
+  background-color: transparent !important;
+  & > div > div:first-of-type {
+    border-radius: 50%;
+    overflow: hidden;
+  }
+}
+
+.google-maps {
+  margin: 0 auto;
+}

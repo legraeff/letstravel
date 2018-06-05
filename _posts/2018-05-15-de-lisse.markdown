@@ -1,0 +1,37 @@
+---
+layout: post
+title:  "Um dia em Lisse"
+date:   2018-05-15 11:12:41 -0300
+thumbnailVideo: lisse-thumbnail.mp4
+comments: true
+tags: lisse, holanda, flores, tulipas, keukenhof
+location:
+  latitude: 52.2544011
+  longitude: 4.4730412
+language: pt
+---
+
+{: .post-title}
+# Lisse
+
+{: .post-date}
+{{page.date | date: "%d.%m.%Y"}}
+
+“Vocês precisam visitar o Keukenhof!” foi a primeira coisa que nos falaram quando chegamos na Holanda. Vimos fotos e vídeos de outras pessoas e ouvimos muito sobre o lugar, o que só confirmou que definitivamente esse seria um dos nossos próximos destinos.
+Com a mudança, a procura de emprego e os novos ajustes aqui em Amsterdam, acabamos adiando e adiando essa visita.
+
+O parque não fica aberto o ano todo, somente durante o começo da primavera até cerca da metade de maio. Sendo assim, planejamos visitar nos dias 4 ou 5 de maio. O imprevisto foi a viagem para Copenhagen que decidimos fazer nesse fim de semana. A viagem foi adiada para um fim de semana depois, 12 ou 13 de maio. Era nessa data ou nunca, pois o parque fecharia pelo resto do ano no dia 14 de maio. Felizmente no sábado tivemos um lindo dia de sol e fomos visitar o parque!
+
+Para quem quiser visitar ano que vem, as datas já foram divulgadas: o parque estará aberto do dia 21 de março até o dia 19 de maio. Vale a pena ressaltar que o melhor período para visitar é entre essas datas: na data de abertura, nem todas as plantas floresceram e o clima normalmente ainda está frio. Já perto do fechamento do parque, apesar do clima estar melhor, as flores das plantações que ficam ao redor do parque já foram colhidas. A data que eu aconselharia seria cerca de 3 semanas antes do fechamento do parque.
+
+Para chegar no parque pegamos um ônibus especial do Keukenhof. O valor da passagem são 5 euros por cada trecho, e ele sai do aeroporto de Amsterdam.
+
+Além das lindas flores do parque existem dois grandes pavilhões no parque que expõe arranjos de flores e decorações baseadas no tema do ano. O tema desse ano era romance, por isso nas fotos aparecem muitas flores rosas, vermelhas, corações, etc. O tema do ano que vem já está definido: ‘Flower Power’, ou seja, poder da flor!
+
+Pelo parque também tem lanchonetes e barraquinhas de waffles, sorvetes, cachorro-quente...fome ninguém vai passar!
+O parque Keukenhof fica na cidade de Lisse, e apesar de ser a grande atração da cidade, muitas pessoas vão até lá somente para visitar as plantações de tulipas ao redor da cidade. A melhor forma de conhecer essas plantações provavelmente é de bicicleta e no parque existe a opção de alugar uma. O preço é fixo em 10 euros para o dia inteiro, então se quiser tirar proveito total a dica é chegar cedo para passear por toda a região. No próprio lugar de aluguel existem folhetos com os trajetos que é possível fazer e os tempos de cada um.
+
+As flores realmente surpreendem, tanto em beleza quanto em quantidade. Depois de termos visitado, tenho certeza que sempre será uma das primeiras recomendações de atrações por aqui!
+
+{: .post-image}
+![Lisse image]({{ "/assets/posts/lisse.jpg" | absolute_url }})

@@ -1,0 +1,22 @@
+<div class="search-container" id="search-container">
+  <input class="search-input" type="text" id="search-input" placeholder={% t 'search' %} />
+  <ul class="search-result" id="results-container"></ul>
+</div>
+
+<script src={{"/assets/js/search-script.js" | prepend: site.baseurl | prepend: site.url}} type="text/javascript"></script>
+
+<script>
+SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  noResultsText: '<li><a>no posts found! :( </a></li>',
+  searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+  json: '/search.json'
+})
+var searchContainer = document.getElementById('search-container');
+var resultsContainer = document.getElementById('results-container');
+searchContainer.addEventListener("focusout", focusOut);
+function focusOut() {
+  resultsContainer.innerHTML = "";
+};
+</script>

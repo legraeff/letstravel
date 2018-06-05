@@ -1,0 +1,35 @@
+---
+layout: default
+title: About
+titleKey: aboutPage
+order: 2
+languages:
+- en
+- pt
+---
+
+<div class="content-wrapper">
+
+  <h1>{% t 'aboutTitle' %}</h1>
+
+  <p> {% t 'aboutContent' %} </p>
+
+
+  <div class="map-section">
+    <p> {% t 'mapTitle' %}:</p>
+    {% if page.language == 'en' %}
+      {% google_map language="en" src="_posts/" id="googleMap" height="400" width="400" class="google-maps" %}
+    {% endif %}
+    {% if page.language == 'pt' %}
+      {% google_map language="pt" src="_posts/" id="googleMap" height="400" width="400" class="google-maps" %}
+    {% endif %}
+  </div>
+</div>
+
+<script>
+var docWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+if (docWidth < 700) {
+  document.getElementById("googleMap").style.height = docWidth - 100 + 'px';
+  document.getElementById("googleMap").style.width = docWidth - 100 + 'px';
+}
+</script>

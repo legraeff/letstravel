@@ -1,0 +1,43 @@
+---
+
+en:
+  seeAllPosts: See all posts
+  aboutTitle: About
+  aboutContent: <p> Hello there! My name is Leticia. </p> <p> I love to travel whenever I get the chance, so I build this website to keep some memories! :) </p>
+  mapTitle: Check out all the places I've been and wrote about so far
+  comingSoonTitle: What's coming next?
+  comingSoonContent: These are the places we're going or planning to go next
+  city: City
+  country: Country
+  date: Date
+  archiveTitle: Archive
+  homePage: Home
+  archivePage: Archive
+  comingSoonPage: Coming Soon
+  aboutPage: About
+  search: search
+  newsletter: newsletter
+  newsletterContent: want to know about new travels? <br /> join our newsletter :)
+  yourEmail: e-mail
+  signUp: sign up
+
+pt:
+  seeAllPosts: Ver todas as postagens
+  aboutTitle: Sobre
+  aboutContent: <p> Oi! Meu nome é Letícia. </p> <p> Eu adoro viajar quando possível, então decidi criar esse blog pra guardar essas boas lembranças :) </p>
+  mapTitle: Esses são os lugares que eu já fui e escrevi sobre
+  comingSoonTitle: Qual o próximo destino?
+  comingSoonContent: Esses são os lugares e datas planejados pra irmos em seguida
+  city: Cidade
+  country: País
+  date: Data
+  archiveTitle: Arquivo
+  homePage: Início
+  archivePage: Arquivo
+  comingSoonPage: Em Breve
+  aboutPage: Sobre
+  search: pesquisar
+  newsletter: newsletter
+  newsletterContent: quer saber sobre novas viagens? <br /> se junte à nossa newsletter :)
+  yourEmail: e-mail
+  signUp: inscrever-se

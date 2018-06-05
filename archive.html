@@ -1,0 +1,41 @@
+---
+layout: default
+title: Archive
+titleKey: archivePage
+order: 4
+languages:
+- en
+- pt
+---
+
+<div class="content-wrapper">
+
+  <h1>{% t 'archiveTitle' %}</h1>
+  <ul class="archive-thumbnail-list">
+    {% for post in site.posts %}
+      {% if post.language == page.language %}
+        <li class="archive-thumbnail-item">
+          <video class="archive-thumbnail-video" loop muted src="{{"/assets/videos/" | prepend: site.baseurl | prepend: site.url | append : post.thumbnailVideo}}" type="video/mp4"></video>
+          <a href="{{ post.url | prepend: site.baseurl }}" class="archive-thumbnail-content">
+            <h2 class="archive-thumbnail-title">{{post.title}}</h2>
+            <p class="archive-thumbnail-date"> {{ post.date | date: "%d.%m.%Y" }} </p>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+
+<script>
+  let videos = document.getElementsByTagName("video");
+  [].forEach.call(videos,function(el){
+    el.addEventListener("mouseenter",function(e){
+      el.play();
+    });
+  });
+  [].forEach.call(videos,function(el){
+    el.addEventListener("mouseout",function(e){
+      el.pause();
+    });
+  });
+</script>

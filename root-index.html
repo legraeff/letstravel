@@ -1,0 +1,30 @@
+---
+layout: default
+permalink: /
+navigation: false
+titleKey: homePage
+languages:
+- en
+---
+
+<div>
+
+  <ul class="post-thumbnail-list">
+    {% assign filtered_posts = site.posts | where:'language', page.language %}
+    {% for post in filtered_posts limit: 3 %}
+      <li class="post-thumbnail-item">
+        <video class="post-thumbnail-video" loop autoplay muted src="{{"/assets/videos/" | prepend: site.baseurl | prepend: site.url | append : post.thumbnailVideo}}" type="video/mp4"></video>
+        <a href="{{ post.url | prepend: site.baseurl }}" class="post-thumbnail-content transition">
+          <h2 class="post-thumbnail-title"> {{post.title}}</h2>
+          <p class="post-thumbnail-date"> {{ post.date | date: "%d.%m.%Y" }} </p>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+</div>
+
+<a class="main-button" href="{{ 'archive.html' | prepend: site.baseurl }}"> {% t 'seeAllPosts' %} </a>
+
+{% include subscription-form.html %}

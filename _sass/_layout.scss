@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Karla";
+  padding-bottom: 50px;
+}
+
+.content-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  @media(max-width: 700px) {
+    padding: 0 20px;
+  }
+}
+
+::selection {
+  background: #DCE5E5 /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #DCE5E5 /* Gecko Browsers */
+}
+
+
+.body-cover {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #DCE5E5;
+  z-index: 999;
+  transition: all .5s;
+  img {
+    position: absolute;
+    max-width: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.uncover-body {
+  transform: translateX(100%);
+}
+
+.cover-body {
+  transform: translateX(0);
+}

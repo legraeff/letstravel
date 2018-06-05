@@ -1,0 +1,16 @@
+<form class="subscription-form"
+      action="https://tinyletter.com/letstravel"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://tinyletter.com/letstravel', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+    <h4> {% t 'newsletter' %} </h4>
+    <p><label for="tlemail"> {% t 'newsletterContent' %}  </label></p>
+    <div class="subscription-content" >
+      <input class="input-large" type="text" placeholder={% t 'yourEmail' %} name="email" id="tlemail" />
+      <input type="hidden" value="1" name="embed"/>
+      <input class="subscription-button" type="submit" value={% t 'signUp' %} />
+    </div>
+    <p><small>
+      <a href="https://tinyletter.com" target="_blank">powered by TinyLetter</a>
+    </small></p>
+</form>
