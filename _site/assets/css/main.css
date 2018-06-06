@@ -16,7 +16,7 @@ body { margin: 0; font-family: "Karla"; padding-bottom: 50px; }
 
 .cover-body { transform: translateX(0); }
 
-@font-face { font-family: "Karla"; src: url("/assets/fonts/Karla-Regular.ttf"); }
+@font-face { font-family: "Karla"; src: url("/letstravel/assets/fonts/Karla-Regular.ttf"); }
 .main-button { display: table; margin: 30px auto; border-bottom: 3px solid black; padding: 10px; text-align: center; font-weight: bold; text-decoration: none; color: black; text-transform: lowercase; }
 
 .subscription-form { padding: 50px 0; text-align: center; }
