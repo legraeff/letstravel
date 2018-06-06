@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+  <head lang="pt">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='shortcut icon' type='image/x-icon' href="http://localhost:4000/assets/static/favicon.ico"/>
+
+  <title>About</title>
+  <meta name="description" content="cool travel things
+">
+
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/pt/about.html">
+  <link rel="alternate" type="application/rss+xml" title="Lets travel" href="http://localhost:4000/feed.xml" />
+  <script type="text/javascript" src=http://localhost:4000/assets/js/jquery.js></script>
+
+<script type='text/javascript'>
+  /* global google */
+/* global MarkerClusterer */
+// eslint-disable-next-line no-unused-vars
+var jekyllMaps = (function() {
+  'use strict'
+  var clusterSettings = {}
+  var clusterReady = false
+  var mapReady = false
+  var options = {}
+  var data = []
+  var maps = []
+
+  return {
+    initializeMap: initializeMap,
+    initializeCluster: initializeCluster,
+    register: register
+  }
+
+  /**
+   * Setup Google Maps options and call renderer.
+   */
+  function initializeMap() {
+    options = {
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      center: new google.maps.LatLng(0, 0)
+    }
+    mapReady = true
+    render()
+  }
+
+  /**
+   * Register map data to be rendered once Google Maps API is loaded.
+   *
+   * @param string id
+   * @param Array locations
+   * @param Object settings
+   */
+  function register(id, locations, options) {
+    data.push({ id: id, locations: locations, options: options })
+    render()
+  }
+
+  /**
+   * Render maps data if Google Maps API is loaded.
+   */
+  function render() {
+    if (!mapReady) return
+
+    while (data.length > 0) {
+      var item = data.pop()
+      var bounds = new google.maps.LatLngBounds()
+      var mapOptions = Object.assign({}, options, item.options)
+      var map = new google.maps.Map(
+        document.getElementById(item.id),
+        mapOptions
+      )
+      var infoWindow = new google.maps.InfoWindow()
+      var markers = item.locations.map(createMarker)
+
+      map.fitBounds(bounds)
+      google.maps.event.addListenerOnce(map, 'idle', function() {
+        if (this.customZoom) this.setZoom(this.customZoom)
+      })
+      if (mapOptions.useCluster) {
+        maps.push({ map: map, markers: markers })
+        processCluster()
+      }
+    }
+
+    function createMarker(location) {
+      var position = new google.maps.LatLng(
+        location.latitude,
+        location.longitude
+      )
+      bounds.extend(position)
+      if (!mapOptions.showMarker) return false
+
+      var marker = new google.maps.Marker({
+        position: position,
+        title: location.title,
+        image: location.image,
+        icon: location.icon || mapOptions.markerIcon,
+        url: markerUrl(mapOptions.baseUrl, location.url),
+        url_text: location.url_text,
+        map: map
+      })
+      if (mapOptions.showMarkerPopup) marker.addListener('click', markerPopup)
+
+      return marker
+    }
+
+    function markerUrl(baseUrl, url) {
+      if (/^(https?|\/\/)/.test(url)) return url
+
+      return url.length > 0 ? baseUrl + url : ''
+    }
+
+    function markerPopup() {
+      var content = '<div class="map-info-window"><h5>' + this.title + '</h5>'
+      var imageTag =
+        this.image.length > 0 &&
+        '<img src="' + this.image + '" alt="' + this.title + '"/>'
+      if (this.url.length > 0) {
+        var linkContent = imageTag || this.url_text || 'View'
+        content += '<a href="' + this.url + '">' + linkContent + '</a>'
+      } else if (imageTag) {
+        content += imageTag
+      }
+      content += '</div>'
+      infoWindow.setContent(content)
+      infoWindow.open(map, this)
+    }
+  }
+
+  function initializeCluster(settings) {
+    clusterReady = true
+    clusterSettings = settings || {}
+    processCluster()
+  }
+
+  function processCluster() {
+    if (!clusterReady) return
+
+    while (maps.length > 0) {
+      var obj = maps.pop()
+      // eslint-disable-next-line no-new
+      new MarkerClusterer(obj.map, obj.markers, {
+        gridSize: clusterSettings.grid_size || 25,
+        imagePath:
+          'https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/images/m'
+      })
+    }
+  }
+})()
+/* Object.assign polyfill */
+if (typeof Object.assign !== 'function') {
+  Object.assign = function(target) {
+    'use strict'
+    if (target == null) {
+      throw new TypeError('Cannot convert undefined or null to object')
+    }
+
+    target = Object(target)
+    for (var index = 1; index < arguments.length; index++) {
+      var source = arguments[index]
+      if (source != null) {
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key]
+          }
+        }
+      }
+    }
+    return target
+  }
+}
+
+</script>
+<script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA3V27RYOIIP8f7c0Ew0EWccV8YaIJ-gK8&callback=jekyllMaps.initializeMap'></script>
+
+<script async defer src='https://cdn.rawgit.com/googlemaps/js-marker-clusterer/gh-pages/src/markerclusterer.js'
+        onload='jekyllMaps.initializeCluster({})'></script>
+
+</head>
+
+
+  <body>
+    <div class="body-cover">
+      <img src="http://localhost:4000/assets/static/logo.png"></img>
+    </div>
+
+
+    <nav>
+  <img class="nav-logo" src="http://localhost:4000/assets/static/logo.png"></img>
+  <h1 class="nav-title"> lets travel </h1>
+  <button class="open-nav-button">
+    <i> + </i>
+  </button>
+  <div class="lang-list">
+    
+    
+      <a  href="/en/"><img  src="http://localhost:4000/assets/static/en.png"/></a>
+    
+      <a class='active-lang' href="/pt/"><img  src="http://localhost:4000/assets/static/pt.png"/></a>
+    
+  </div>
+
+  <ul class="navigation">
+    
+    
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/" class="navigation-link"> Início </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/about.html" class="navigation-link"> Sobre </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/coming-soon.html" class="navigation-link"> Em Breve </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/archive.html" class="navigation-link"> Arquivo </a></li>
+      
+    
+    <li class="navigation-item">
+      <div class="search-container" id="search-container">
+  <input class="search-input" type="text" id="search-input" placeholder=pesquisar />
+  <ul class="search-result" id="results-container"></ul>
+</div>
+
+<script src=http://localhost:4000/assets/js/search-script.js type="text/javascript"></script>
+
+<script>
+SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  noResultsText: '<li><a>no posts found! :( </a></li>',
+  searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+  json: '/search.json'
+})
+var searchContainer = document.getElementById('search-container');
+var resultsContainer = document.getElementById('results-container');
+searchContainer.addEventListener("focusout", focusOut);
+function focusOut() {
+  resultsContainer.innerHTML = "";
+};
+</script>
+
+    </li>
+  </ul>
+</nav>
+
+<script>
+
+$(".open-nav-button").click(function() {
+  $(".navigation").toggleClass('open');
+  $(".open-nav-button i").toggleClass('open');
+});
+
+</script>
+
+
+    <div>
+      <div class="content-wrapper">
+
+  <h1>Sobre</h1>
+
+  <p> <p> Oi! Meu nome é Letícia. </p> <p> Eu adoro viajar quando possível, então decidi criar esse blog pra guardar essas boas lembranças :) </p> </p>
+
+
+  <div class="map-section">
+    <p> Esses são os lugares que eu já fui e escrevi sobre:</p>
+    
+    
+      <div id='googleMap' style='width:400px;height:400px;' class='google-maps'></div>
+<script type='text/javascript'>
+  jekyllMaps.register(
+    'googleMap',
+    [{"latitude":55.6712474,"longitude":12.5237842,"title":"Fim de semana em Copenhagen","icon":null,"url":"/pt/2018/05/06/de-copenhagen.html","url_text":null,"image":""},{"latitude":52.2544011,"longitude":4.4730412,"title":"Um dia em Lisse","icon":null,"url":"/pt/2018/05/15/de-lisse.html","url_text":null,"image":""}],
+    {"baseUrl":"","useCluster":true,"showMarker":true,"showMarkerPopup":true,"markerIcon":null}
+  );
+</script>
+
+    
+  </div>
+</div>
+
+<script>
+var docWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+if (docWidth < 700) {
+  document.getElementById("googleMap").style.height = docWidth - 100 + 'px';
+  document.getElementById("googleMap").style.width = docWidth - 100 + 'px';
+}
+</script>
+
+    </div>
+
+    <!--  -->
+
+    <script type="text/javascript" src=http://localhost:4000/assets/js/jquery.js></script>
+    <script type="text/javascript">
+      $(window).on('load', function() {
+          $(".body-cover").addClass("uncover-body");
+          $("a[href]").click(function(event){
+              event.preventDefault();
+              linkLocation = this.href;
+              $(".body-cover").addClass("cover-body")
+              setTimeout(function(){
+                 redirectPage(); }
+              , 500);
+          });
+          function redirectPage() {
+              window.location = linkLocation;
+          }
+      });
+    </script>
+
+  </body>
+
+</html>

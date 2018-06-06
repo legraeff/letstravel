@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+  <head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='shortcut icon' type='image/x-icon' href="http://localhost:4000/assets/static/favicon.ico"/>
+
+  <title>Lets travel</title>
+  <meta name="description" content="cool travel things
+">
+
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/">
+  <link rel="alternate" type="application/rss+xml" title="Lets travel" href="http://localhost:4000/feed.xml" />
+  <script type="text/javascript" src=http://localhost:4000/assets/js/jquery.js></script>
+
+</head>
+
+
+  <body>
+    <div class="body-cover">
+      <img src="http://localhost:4000/assets/static/logo.png"></img>
+    </div>
+
+
+    <nav>
+  <img class="nav-logo" src="http://localhost:4000/assets/static/logo.png"></img>
+  <h1 class="nav-title"> lets travel </h1>
+  <button class="open-nav-button">
+    <i> + </i>
+  </button>
+  <div class="lang-list">
+    
+    
+      <a class='active-lang' href="/en/"><img  src="http://localhost:4000/assets/static/en.png"/></a>
+    
+      <a  href="/pt/"><img  src="http://localhost:4000/assets/static/pt.png"/></a>
+    
+  </div>
+
+  <ul class="navigation">
+    
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/en/" class="navigation-link"> Home </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/en/about.html" class="navigation-link"> About </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/en/coming-soon.html" class="navigation-link"> Coming Soon </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/en/archive.html" class="navigation-link"> Archive </a></li>
+      
+    
+      
+    
+    <li class="navigation-item">
+      <div class="search-container" id="search-container">
+  <input class="search-input" type="text" id="search-input" placeholder=search />
+  <ul class="search-result" id="results-container"></ul>
+</div>
+
+<script src=http://localhost:4000/assets/js/search-script.js type="text/javascript"></script>
+
+<script>
+SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  noResultsText: '<li><a>no posts found! :( </a></li>',
+  searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+  json: '/search.json'
+})
+var searchContainer = document.getElementById('search-container');
+var resultsContainer = document.getElementById('results-container');
+searchContainer.addEventListener("focusout", focusOut);
+function focusOut() {
+  resultsContainer.innerHTML = "";
+};
+</script>
+
+    </li>
+  </ul>
+</nav>
+
+<script>
+
+$(".open-nav-button").click(function() {
+  $(".navigation").toggleClass('open');
+  $(".open-nav-button i").toggleClass('open');
+});
+
+</script>
+
+
+    <div>
+      <div>
+
+  <ul class="post-thumbnail-list">
+    
+    
+      <li class="post-thumbnail-item">
+        <video class="post-thumbnail-video" loop autoplay muted src="http://localhost:4000/assets/videos/lisse-thumbnail.mp4" type="video/mp4"></video>
+        <a href="/en/2018/05/15/from-lisse.html" class="post-thumbnail-content transition">
+          <h2 class="post-thumbnail-title"> A day in Lisse</h2>
+          <p class="post-thumbnail-date"> 15.05.2018 </p>
+        </a>
+      </li>
+    
+      <li class="post-thumbnail-item">
+        <video class="post-thumbnail-video" loop autoplay muted src="http://localhost:4000/assets/videos/copenhagen-thumbnail.mp4" type="video/mp4"></video>
+        <a href="/en/2018/05/06/from-copenhagen.html" class="post-thumbnail-content transition">
+          <h2 class="post-thumbnail-title"> Weekend in Copenhagen</h2>
+          <p class="post-thumbnail-date"> 06.05.2018 </p>
+        </a>
+      </li>
+    
+  </ul>
+
+
+</div>
+
+<a class="main-button" href="archive.html"> See all posts </a>
+
+<form class="subscription-form"
+      action="https://tinyletter.com/letstravel"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://tinyletter.com/letstravel', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+    <h4> newsletter </h4>
+    <p><label for="tlemail"> want to know about new travels? <br /> join our newsletter :)  </label></p>
+    <div class="subscription-content" >
+      <input class="input-large" type="text" placeholder=e-mail name="email" id="tlemail" />
+      <input type="hidden" value="1" name="embed"/>
+      <input class="subscription-button" type="submit" value=sign up />
+    </div>
+    <p><small>
+      <a href="https://tinyletter.com" target="_blank">powered by TinyLetter</a>
+    </small></p>
+</form>
+
+
+    </div>
+
+    <!--  -->
+
+    <script type="text/javascript" src=http://localhost:4000/assets/js/jquery.js></script>
+    <script type="text/javascript">
+      $(window).on('load', function() {
+          $(".body-cover").addClass("uncover-body");
+          $("a[href]").click(function(event){
+              event.preventDefault();
+              linkLocation = this.href;
+              $(".body-cover").addClass("cover-body")
+              setTimeout(function(){
+                 redirectPage(); }
+              , 500);
+          });
+          function redirectPage() {
+              window.location = linkLocation;
+          }
+      });
+    </script>
+
+  </body>
+
+</html>

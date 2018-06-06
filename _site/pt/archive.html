@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+  <head lang="pt">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='shortcut icon' type='image/x-icon' href="http://localhost:4000/assets/static/favicon.ico"/>
+
+  <title>Archive</title>
+  <meta name="description" content="cool travel things
+">
+
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/pt/archive.html">
+  <link rel="alternate" type="application/rss+xml" title="Lets travel" href="http://localhost:4000/feed.xml" />
+  <script type="text/javascript" src=http://localhost:4000/assets/js/jquery.js></script>
+
+</head>
+
+
+  <body>
+    <div class="body-cover">
+      <img src="http://localhost:4000/assets/static/logo.png"></img>
+    </div>
+
+
+    <nav>
+  <img class="nav-logo" src="http://localhost:4000/assets/static/logo.png"></img>
+  <h1 class="nav-title"> lets travel </h1>
+  <button class="open-nav-button">
+    <i> + </i>
+  </button>
+  <div class="lang-list">
+    
+    
+      <a  href="/en/"><img  src="http://localhost:4000/assets/static/en.png"/></a>
+    
+      <a class='active-lang' href="/pt/"><img  src="http://localhost:4000/assets/static/pt.png"/></a>
+    
+  </div>
+
+  <ul class="navigation">
+    
+    
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/" class="navigation-link"> Início </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/about.html" class="navigation-link"> Sobre </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/coming-soon.html" class="navigation-link"> Em Breve </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/archive.html" class="navigation-link"> Arquivo </a></li>
+      
+    
+    <li class="navigation-item">
+      <div class="search-container" id="search-container">
+  <input class="search-input" type="text" id="search-input" placeholder=pesquisar />
+  <ul class="search-result" id="results-container"></ul>
+</div>
+
+<script src=http://localhost:4000/assets/js/search-script.js type="text/javascript"></script>
+
+<script>
+SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  noResultsText: '<li><a>no posts found! :( </a></li>',
+  searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+  json: '/search.json'
+})
+var searchContainer = document.getElementById('search-container');
+var resultsContainer = document.getElementById('results-container');
+searchContainer.addEventListener("focusout", focusOut);
+function focusOut() {
+  resultsContainer.innerHTML = "";
+};
+</script>
+
+    </li>
+  </ul>
+</nav>
+
+<script>
+
+$(".open-nav-button").click(function() {
+  $(".navigation").toggleClass('open');
+  $(".open-nav-button i").toggleClass('open');
+});
+
+</script>
+
+
+    <div>
+      <div class="content-wrapper">
+
+  <h1>Arquivo</h1>
+  <ul class="archive-thumbnail-list">
+    
+      
+    
+      
+        <li class="archive-thumbnail-item">
+          <video class="archive-thumbnail-video" loop muted src="http://localhost:4000/assets/videos/lisse-thumbnail.mp4" type="video/mp4"></video>
+          <a href="/pt/2018/05/15/de-lisse.html" class="archive-thumbnail-content">
+            <h2 class="archive-thumbnail-title">Um dia em Lisse</h2>
+            <p class="archive-thumbnail-date"> 15.05.2018 </p>
+          </a>
+        </li>
+      
+    
+      
+    
+      
+        <li class="archive-thumbnail-item">
+          <video class="archive-thumbnail-video" loop muted src="http://localhost:4000/assets/videos/copenhagen-thumbnail.mp4" type="video/mp4"></video>
+          <a href="/pt/2018/05/06/de-copenhagen.html" class="archive-thumbnail-content">
+            <h2 class="archive-thumbnail-title">Fim de semana em Copenhagen</h2>
+            <p class="archive-thumbnail-date"> 06.05.2018 </p>
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+<script>
+  let videos = document.getElementsByTagName("video");
+  [].forEach.call(videos,function(el){
+    el.addEventListener("mouseenter",function(e){
+      el.play();
+    });
+  });
+  [].forEach.call(videos,function(el){
+    el.addEventListener("mouseout",function(e){
+      el.pause();
+    });
+  });
+</script>
+
+    </div>
+
+    <!--  -->
+
+    <script type="text/javascript" src=http://localhost:4000/assets/js/jquery.js></script>
+    <script type="text/javascript">
+      $(window).on('load', function() {
+          $(".body-cover").addClass("uncover-body");
+          $("a[href]").click(function(event){
+              event.preventDefault();
+              linkLocation = this.href;
+              $(".body-cover").addClass("cover-body")
+              setTimeout(function(){
+                 redirectPage(); }
+              , 500);
+          });
+          function redirectPage() {
+              window.location = linkLocation;
+          }
+      });
+    </script>
+
+  </body>
+
+</html>

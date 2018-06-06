@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+  <head lang="pt">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel='shortcut icon' type='image/x-icon' href="http://localhost:4000/assets/static/favicon.ico"/>
+
+  <title>Coming soon</title>
+  <meta name="description" content="cool travel things
+">
+
+  <link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+  <link rel="canonical" href="http://localhost:4000/pt/coming-soon.html">
+  <link rel="alternate" type="application/rss+xml" title="Lets travel" href="http://localhost:4000/feed.xml" />
+  <script type="text/javascript" src=http://localhost:4000/assets/js/jquery.js></script>
+
+</head>
+
+
+  <body>
+    <div class="body-cover">
+      <img src="http://localhost:4000/assets/static/logo.png"></img>
+    </div>
+
+
+    <nav>
+  <img class="nav-logo" src="http://localhost:4000/assets/static/logo.png"></img>
+  <h1 class="nav-title"> lets travel </h1>
+  <button class="open-nav-button">
+    <i> + </i>
+  </button>
+  <div class="lang-list">
+    
+    
+      <a  href="/en/"><img  src="http://localhost:4000/assets/static/en.png"/></a>
+    
+      <a class='active-lang' href="/pt/"><img  src="http://localhost:4000/assets/static/pt.png"/></a>
+    
+  </div>
+
+  <ul class="navigation">
+    
+    
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/" class="navigation-link"> Início </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/about.html" class="navigation-link"> Sobre </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/coming-soon.html" class="navigation-link"> Em Breve </a></li>
+      
+    
+      
+    
+      
+        <li class="navigation-item"><a href="/pt/archive.html" class="navigation-link"> Arquivo </a></li>
+      
+    
+    <li class="navigation-item">
+      <div class="search-container" id="search-container">
+  <input class="search-input" type="text" id="search-input" placeholder=pesquisar />
+  <ul class="search-result" id="results-container"></ul>
+</div>
+
+<script src=http://localhost:4000/assets/js/search-script.js type="text/javascript"></script>
+
+<script>
+SimpleJekyllSearch({
+  searchInput: document.getElementById('search-input'),
+  resultsContainer: document.getElementById('results-container'),
+  noResultsText: '<li><a>no posts found! :( </a></li>',
+  searchResultTemplate: '<li><a href="{url}">{title}</a></li>',
+  json: '/search.json'
+})
+var searchContainer = document.getElementById('search-container');
+var resultsContainer = document.getElementById('results-container');
+searchContainer.addEventListener("focusout", focusOut);
+function focusOut() {
+  resultsContainer.innerHTML = "";
+};
+</script>
+
+    </li>
+  </ul>
+</nav>
+
+<script>
+
+$(".open-nav-button").click(function() {
+  $(".navigation").toggleClass('open');
+  $(".open-nav-button i").toggleClass('open');
+});
+
+</script>
+
+
+    <div>
+      <div class="content-wrapper">
+
+  <h1>Qual o próximo destino?</h1>
+
+  <p> Esses são os lugares e datas planejados pra irmos em seguida:</p>
+  <table cellspacing="0" class="next-table">
+    <thead>
+      <tr>
+        <th>Cidade</th>
+        <th>País</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Brussels</td>
+        <td>Belgium</td>
+        <td>22.06.2018</td>
+      </tr>
+      <tr>
+        <td>London</td>
+        <td>England</td>
+        <td>TBA</td>
+      </tr>
+      <tr>
+        <td>Paris</td>
+        <td>France</td>
+        <td>TBA</td>
+      </tr>
+      <tr>
+        <td>Athenes</td>
+        <td>Greece</td>
+        <td>TBA</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</div>
+
+<form class="subscription-form"
+      action="https://tinyletter.com/letstravel"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://tinyletter.com/letstravel', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+    <h4> newsletter </h4>
+    <p><label for="tlemail"> quer saber sobre novas viagens? <br /> se junte à nossa newsletter :)  </label></p>
+    <div class="subscription-content" >
+      <input class="input-large" type="text" placeholder=e-mail name="email" id="tlemail" />
+      <input type="hidden" value="1" name="embed"/>
+      <input class="subscription-button" type="submit" value=inscrever-se />
+    </div>
+    <p><small>
+      <a href="https://tinyletter.com" target="_blank">powered by TinyLetter</a>
+    </small></p>
+</form>
+
+
+    </div>
+
+    <!--  -->
+
+    <script type="text/javascript" src=http://localhost:4000/assets/js/jquery.js></script>
+    <script type="text/javascript">
+      $(window).on('load', function() {
+          $(".body-cover").addClass("uncover-body");
+          $("a[href]").click(function(event){
+              event.preventDefault();
+              linkLocation = this.href;
+              $(".body-cover").addClass("cover-body")
+              setTimeout(function(){
+                 redirectPage(); }
+              , 500);
+          });
+          function redirectPage() {
+              window.location = linkLocation;
+          }
+      });
+    </script>
+
+  </body>
+
+</html>
